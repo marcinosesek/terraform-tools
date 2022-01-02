@@ -7,7 +7,7 @@ resource "aws_subnet" "subnet" {
     tags = merge(
         var.SUBNET_TAGS,
         {
-            Name = format("%s-%s-subnet", var.SUBNET_NAME_PREFIX, var.PUBLIC_SUBNET == true ? "public" : "private")
+            Name = format("%s-%s-%s", var.VPC_NAME, var.PUBLIC_SUBNET == true ? "public" : "private", var.SUBNET_AZ)
         },
     )
 }
